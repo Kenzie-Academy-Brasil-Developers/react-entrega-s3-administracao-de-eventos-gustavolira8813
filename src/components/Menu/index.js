@@ -1,22 +1,22 @@
 import { Button, MenuItem, MenuList } from "@material-ui/core";
 import "./styles.js";
-import { useHistory } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { MenuBox } from "./styles.js";
 function Menu() {
-  const history = useHistory("");
+  let history = useHistory();
+
+  const navigator = (link) => {
+    history.push(`/${link}`);
+  };
 
   return (
     <>
       <MenuBox>
         <MenuList id="composition-menu" aria-labelledby="composition-button">
-          <MenuItem onClick={() => history.push("/")}>Home</MenuItem>
-          <MenuItem onClick={() => history.push("/confra")}>Confra</MenuItem>
-          <MenuItem onClick={() => history.push("/casamento")}>
-            Casamento
-          </MenuItem>
-          <MenuItem onClick={() => history.push("/formatura")}>
-            Formatura
-          </MenuItem>
+          <MenuItem onClick={() => navigator("")}>Home</MenuItem>
+          <MenuItem onClick={() => navigator("confra")}>Confra</MenuItem>
+          <MenuItem onClick={() => navigator("casamento")}>Casamento</MenuItem>
+          <MenuItem onClick={() => navigator("formatura")}>Formatura</MenuItem>
         </MenuList>
       </MenuBox>
     </>

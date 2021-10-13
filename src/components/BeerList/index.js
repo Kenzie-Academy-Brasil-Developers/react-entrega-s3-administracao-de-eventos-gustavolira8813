@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useEffect } from "react";
-import { useContext } from "react/cjs/react.development";
+import { useContext } from "react";
 import { BeersContext } from "../../Providers/BeerList";
 import { ConfraContext } from "../../Providers/Confra";
 import { FormaturaContext } from "../../Providers/Formatura";
@@ -14,11 +14,12 @@ function BeerList({ type }) {
   const { confra, addToConfra, removeFromConfra } = useContext(ConfraContext);
   const { casamento, addToCasamento, removeFromCasamento } =
     useContext(CasamentoContext);
-  useEffect(() => {
-    axios
-      .get("https://api.punkapi.com/v2/beers")
-      .then((response) => setBeers(response.data));
-  }, []);
+  // useEffect(() => {
+  //   axios
+  //     .get("https://api.punkapi.com/v2/beers")
+  //     .then((response) => setBeers(response.data))
+  //     .catch((err) => console.log(err));
+  // }, []);
 
   return (
     <ul>
